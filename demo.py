@@ -184,7 +184,7 @@ optimizerG.load_state_dict(state['optimizerG_state_dict'])
 
 img = []
 G_conf = []
-
+imageIndex = 0
 
 print("Training discriminator...")
 start = time.time()
@@ -222,6 +222,10 @@ for i in range(10):
         output = discriminator(fake)
         avg = output.view(-1).mean().item()
         confidences = unpack(output.tolist())
+        for j, im in enumerate(fake):
+            if confidences[j] > 0.9:
+                vutils.save_image(im, f"demo_{imageIndex}_{confidences[j]:.2f}.bmp")
+                imageIndex += 1
         G_conf.append(confidences)
 
 # Display the images
@@ -238,9 +242,7 @@ for i in range(10):
             xoffset = 0
         plt.text(10 + xoffset, yoffset, f"{G_conf[i][j]:.2f}", color='red', weight='bold')
         xoffset += 66
-    #plt.text(10, 10, f"{G_conf[i]}", bbox=dict(facecolor='red',alpha=0.5))
     plt.show()
-
 
 # animate images development in generator
 #fig  = plt.figure(figsize=(8,8))
