@@ -23,6 +23,12 @@ pip3 install numpy matplotlib
 pip3 install torch torchvision
 ```
 
+# Quick Start
+Included in the repository is the state of a pretrained generator such that
+the demo program can be run immediately.  There is no need to run the training
+program unless you wish to modify it.  Simply follow the demonstration
+instructions below.
+
 # Training
 Training the dataset takes a few hours on a laptop, as we did not have a GPU
 at our disposal to exploit.  The original code includes additional setup code
