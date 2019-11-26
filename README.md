@@ -52,4 +52,16 @@ captured during the training process.  After setup, the generator will produce
 new fingerprints from a random input vector, display them, and display the
 output from the discriminator for that fingerprint.
 
+The demo discriminator only uses the original dataset for training,
+representing a group of known fingerprints for authorized users.  The demo
+generator takes as input a random vector and produces several batches of new
+fingerprints, which are then checked against the discriminator.
+
+After running the demo program, any generated images which had confidence >
+90% will be saved to the working directory for inspection.  Run the demo after
+training:
+
+```shell
+python3 demo.py
+```
 
