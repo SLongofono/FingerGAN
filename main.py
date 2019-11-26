@@ -41,7 +41,7 @@ ngf = 64
 ndf = 64
 
 # training runs ("epochs")
-num_epochs = 25
+num_epochs = 50
 
 # learning rate, from paper
 lr = 0.0002
